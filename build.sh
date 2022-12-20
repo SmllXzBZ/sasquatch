@@ -21,17 +21,17 @@ cd $(dirname `readlink  -f $0`)
 # Download squashfs4.3.tar.gz if it does not already exist
 if [ ! -e squashfs4.3.tar.gz ]
 then
-    wget https://downloads.sourceforge.net/project/squashfs/squashfs/squashfs4.3/squashfs4.3.tar.gz
+    wget https://downloads.sourceforge.net/project/squashfs/squashfs/squashfs4.5.1/squashfs4.5.1.tar.gz
 fi
 
 # Remove any previous squashfs4.3 directory to ensure a clean patch/build
 rm -rf squashfs4.3
 
 # Extract squashfs4.3.tar.gz
-tar -zxvf squashfs4.3.tar.gz
+tar -zxvf squashfs4.5.1.tar.gz
 
 # Patch, build, and install the source
-cd squashfs4.3
+cd squashfs4.5.1
 patch -p0 < ../patches/patch0.txt
 cd squashfs-tools
 make && $SUDO make install
